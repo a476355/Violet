@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>提示信息</title>
+</head>
+<style>
+    html{
+        font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    }
+</style>
+<body>
+    <div style="margin-left: auto;margin-right: auto;margin-top: 10%;width: 600px;padding-top: 2rem;padding-bottom: 2rem;text-align: center">
+        <h1><?php  echo $text?></h1>
+
+        <p style="width: 100%;text-align: center;color: #696969">
+            系统会在 <span id="int"><?php  echo $int ?></span> 秒后转跳！也可以手动点击 <a style="color: #00a1d6" id="herf" href="#">立即转跳</a>
+        </p>
+    </div>
+
+    <input id="url" type="hidden" value="<?php echo $url ?>">
+</body>
+
+<script>
+    var $obj_int = document.getElementById("int");
+    var $int = Number($obj_int.innerHTML);
+    var $herf = document.getElementById("herf");
+
+    $herf.addEventListener('click', function(e){
+        var $url = document.getElementById("url");
+        $url = $url.value;
+        if($url == 'null' || $url == '' ){
+                window.history.back(-1);
+        }else{
+                window.location.href = $url;
+        }
+    });
+
+    function funA() {
+        $obj_int.innerHTML = --$int;
+        if($int == 0){
+            window.clearInterval(A_setIn);
+            var $url = document.getElementById("url");
+            $url = $url.value;
+            if($url == 'null'){
+                window.history.back(-1);
+            }else{
+                window.location.href = $url;
+            }
+        }
+    }
+
+    var A_setIn  = setInterval( funA ,1000)
+</script>
+
+</html>

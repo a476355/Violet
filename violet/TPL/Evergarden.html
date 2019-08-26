@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Violet Warning</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="{{HTTP_ROUTE}}violet/TPL/Evergarden.css"  type="text/css" rel="stylesheet" charset="utf-8" />
+</head>
+<body>
+    <header>
+        <h1>Violet System {{$h1}}</h1>
+    </header>
+    <article class="layout_flex">
+        <main>
+            <section class="list_file">
+                <ul>
+                    <li>错误原因：</li>
+                    <li>{{$info}}</li>
+                </ul>
+                <ul>
+                    <li>错误代码：</li>
+                    <li>{{$code}}</li>
+                </ul>
+                <ul>
+                    <li>错误文件：</li>
+                    <li>{{$file}}</li>
+                </ul>
+                <ul>
+                    <li>错误行号：</li>
+                    <li>{{$line}}</li>
+                </ul>
+            </section>
+
+            <section class="list_file" style="margin-top: 1em">
+                <ul>
+                    <li>HTTP：</li>
+                    <li>{{$host}}</li>
+                </ul>
+                <ul>
+                    <li>记录时间：</li>
+                    <li>{{$date}}</li>
+                </ul>
+            </section>
+        </main>
+        <aside>{{$context}}</aside>
+    </article>
+</body>
+</html>
